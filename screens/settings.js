@@ -14,6 +14,7 @@ export default function Settings({ route}) {
     const [once, setOnce] = useState(false)
     const [recurring, setRecurring] = useState(false)
     const [value, setValue] = useState(null);
+    const [limit, setLimit] = useState(200);
     const [items, setItems] = useState([ {label:'Weekly',value:'weekly'}, {label:'Monthly',value:'monthly'}, {label:'Annually',value:'annually'}  ]);
    let controller;
     return (
@@ -26,7 +27,7 @@ export default function Settings({ route}) {
          <Text style={styles.location}>
                 Your <Text style={{fontWeight:'bold',textDecorationStyle:'solid', textDecorationLine:'underline'}}>annual</Text> donation limit is
             </Text>
-           <Text style={{marginHorizontal:'20%', width:'80%', alignSelf:'center', color:'#195F56', fontFamily:'FuturaH', fontSize:50, height:50, textAlign:'center', paddingLeft:20}}>$200</Text>
+           <Text style={{marginHorizontal:'20%', width:'80%', alignSelf:'center', color:'#195F56', fontFamily:'FuturaH', fontSize:50, height:50, textAlign:'center', paddingLeft:20}}>${limit}</Text>
            <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#FFF', fontFamily:'FuturaH', marginTop:'5%', marginBottom:'10%', backgroundColor:'#195F56', padding:'5%', width:'60%', borderRadius:10, alignSelf:'center', marginRight:'10%', elevation:1}} onPress={()=>setRecurring(true)}>Edit</Text>
            </View>}
 
@@ -34,11 +35,9 @@ export default function Settings({ route}) {
 <View>
            <Text style={styles.name}>Time Frame:{"\n"}<Text style={{fontFamily:'FuturaL', fontSize:18}}>Choose the time frame you want to limit your maximum donation amount to. Once you’ve donated your maximum limit within the timeframe you set, we’ll reset your donation clock.</Text></Text>
     
-          
-        <DropDownPicker
-            labelStyle={{ fontFamily:'FuturaH', fontSize:20, color:"#195F56"}}
-          containerStyle={{height: 40, fontFamily:'FuturaH'}}
-          style={{width:'60%', marginLeft:'10%', backgroundColor:'#FFF9EB', zIndex:4, position:'absolute'}}
+           <DropDownPicker
+          containerStyle={{height: 40}}
+          style={{width:'60%', alignSelf:'center', backgroundColor:'#FFF9EB'}}
     items={items}
     controller={instance => controller = instance}
     onChangeList={(items, callback) => {
@@ -51,7 +50,7 @@ export default function Settings({ route}) {
     onChangeItem={item => {setValue(item.value); console.log(item.value)}}
 />
 <Text style={styles.donation}>Donation Amount Limit:{"\n"}<Text style={{fontFamily:'FuturaL', fontSize:18}}>Choose the maximum amount you wish to donate within the time frame you set above.</Text></Text>
-<TextInput style={{marginHorizontal:'20%', width:'60%',alignSelf:'flex-start', marginTop:'5%', fontFamily:'FuturaH', fontSize:20, height:50, borderRadius:5, backgroundColor:'#FFF', elevation:1, paddingLeft:20}} placeholder="$0+"></TextInput>
+<TextInput onChangeText={(value)=>{setLimit(value)}} style={{marginHorizontal:'20%', width:'60%',alignSelf:'flex-start', marginTop:'5%', fontFamily:'FuturaH', fontSize:20, height:50, borderRadius:5, backgroundColor:'#FFF', elevation:1, paddingLeft:20}} placeholder="$0+"></TextInput>
 <Text style={{position:'relative',fontSize:20,margin:'auto', textAlign:'center', color:'#FFF', fontFamily:'FuturaH', marginTop:'25%', marginBottom:'10%', backgroundColor:'#195F56', padding:'5%', width:'60%', borderRadius:10, alignSelf:'center',  elevation:1}} onPress={()=>setRecurring(false)}>Confirm</Text>
 
 

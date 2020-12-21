@@ -12,6 +12,9 @@ import Details from './screens/details';
 import Donate from './screens/donate';
 import Thanks from './screens/thanks';
 import Settings from './screens/settings';
+import Add from './screens/add';
+import Success from './screens/success';
+
 
 const Stack = createStackNavigator();
 
@@ -58,6 +61,17 @@ function MyStack() {
         component={Settings} 
         options={{ headerShown: false}} 
       />
+       <Stack.Screen 
+        name="Add" 
+        component={Add} 
+        options={{ headerShown: false}} 
+      />
+       <Stack.Screen 
+        name="Success" 
+        component={Success} 
+        options={{ headerShown: false}} 
+      />
+
     </Stack.Navigator>
   );
 }

@@ -3,14 +3,14 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {Svg, Line, Path} from 'react-native-svg'
 
-export default function Card({ route,title,image, description, reached, goal}) {
+export default function Card({ route,title,image, location, description, reached, goal}) {
     const navigation = useNavigation();
     return (
     <View style={styles.container}>
          <Image source={{ uri: image }} style={styles.photo} />
         <View style={styles.fishdeets}>  
         <Text style={styles.description}>
-                {description}
+                {location}
             </Text>
         <Text style={styles.name}>{title}</Text>
        <Text style={styles.goal}>${reached} of ${goal} goal</Text>

@@ -44,7 +44,7 @@ _getLocation(){
 })
     .then((response) => response.json())
     .then((responseJson) => {
-console.log(responseJson.data[0].label);
+console.log(responseJson.data[0]);
 this.setState({'loc':responseJson.data[0].label})
     })
     .catch((error) => {
@@ -56,16 +56,16 @@ this.setState({'loc':responseJson.data[0].label})
     return  [
     {
       
-    title:"Christmas Dinner Fund",
-    image:"https://pbs.twimg.com/media/EaCl5AtVcAA7R20.jpg", 
+    title:"Keep our Business Running",
+    image:"https://saudigazette.com.sa/uploads/images/2020/08/29/1624784.jpg", 
     location:"Manhattan, NY",
     reached: 50,
     goal : 100,
   },
   {
     
-    title:"Christmas Dinner Fund",
-    image:"https://pbs.twimg.com/media/EaCl5AtVcAA7R20.jpg", 
+    title:"Community Church Project",
+    image:"https://www.churchleadership.com/wp-content/uploads/2010/12/lightstock_145365_medium_ann_.jpg", 
     location:"Manhattan, NY",
     reached: 80,
     goal : 100,
@@ -73,14 +73,14 @@ this.setState({'loc':responseJson.data[0].label})
   {
     
     title:"Christmas Dinner Fund",
-    image:"https://pbs.twimg.com/media/EaCl5AtVcAA7R20.jpg", 
+    image:"https://i2-prod.bristolpost.co.uk/incoming/article4644873.ece/ALTERNATES/s1200/2_Everybody-is-busy-on-that-day.jpg", 
     location:"Manhattan, NY",
     reached: 50,
     goal : 200,
   },
   {
     
-    title:"Christmas Dinner Fund",
+    title:"Help My Small Business Stay Afloat",
     image:"https://www.arabnews.com/sites/default/files/styles/n_670_395/public/2020/02/23/1985096-2103691868.jpg?itok=Xyr_pnp7", 
     location:"Manhattan, NY",
     reached: 50,
@@ -90,6 +90,33 @@ this.setState({'loc':responseJson.data[0].label})
   }
 
   getCData() {
+    return  [
+  {
+    
+    title:"Community Church Project",
+    image:"https://www.churchleadership.com/wp-content/uploads/2010/12/lightstock_145365_medium_ann_.jpg", 
+    location:"Manhattan, NY",
+    description:"My small business, like so many others, has been greatly affected by the COVID pandemic. I’m behind on my",
+    description_long:"Like so many other Americans and families in our community, we’ve fallen on hard times. My wife was unfortunately let go from her longtime job months ago, and despite having substantial savings before the pandemic, we find ourselves extremely low on funds right before Christmas. We’re hoping the wonderful people of this community can help us put food on the table for our kids’ favorite holiday. Any help would be so, so appreaciate.",
+    reached: 80,
+    goal : 100,
+  },
+  {
+    
+    title:"Christmas Dinner Fund",
+    image:"https://i2-prod.bristolpost.co.uk/incoming/article4644873.ece/ALTERNATES/s1200/2_Everybody-is-busy-on-that-day.jpg", 
+    location:"Manhattan, NY",
+    description:"My small business, like so many others, has been greatly affected by the COVID pandemic. I’m behind on my",
+    description_long:"Like so many other Americans and families in our community, we’ve fallen on hard times. My wife was unfortunately let go from her longtime job months ago, and despite having substantial savings before the pandemic, we find ourselves extremely low on funds right before Christmas. We’re hoping the wonderful people of this community can help us put food on the table for our kids’ favorite holiday. Any help would be so, so appreaciate.",
+    reached: 50,
+    goal : 200,
+  },
+
+  ]
+  }
+
+
+  getOData() {
     return  [
     {
       
@@ -103,31 +130,14 @@ this.setState({'loc':responseJson.data[0].label})
   },
   {
     
-    title:"Help My Small Business Stay Afloat",
-    image:"https://www.arabnews.com/sites/default/files/styles/n_670_395/public/2020/02/23/1985096-2103691868.jpg?itok=Xyr_pnp7", 
+    title:"Save The Downer",
+    image:"https://www.gannett-cdn.com/presto/2020/03/16/PMJS/b728c725-e50f-47ac-ab41-a33f4ba16f6c-MJS_Coronavirus_Movie_Cancel_01429.JPG?crop=3899,2194,x0,y0&width=3200&height=1801&format=pjpg&auto=webp", 
     location:"Manhattan, NY",
-    description:"My small business, like so many others, has been greatly affected by the COVID pandemic. I’m behind on my",
+    description:"Heading into our 60th year of business, what’s become a local institution needs help from the community to survive",
     reached: 80,
     goal : 100,
   },
-  {
-    
-    title:"Help My Small Business Stay Afloat",
-    image:"https://www.arabnews.com/sites/default/files/styles/n_670_395/public/2018/02/15/1103016-1601631012.jpg?itok=8LtxGwLy", 
-    location:"Manhattan, NY",
-    description:"My small business, like so many others, has been greatly affected by the COVID pandemic. I’m behind on my",
-    reached: 50,
-    goal : 200,
-  },
-  {
-    
-    title:"Help My Small Business Stay Afloat",
-    image:"https://www.arabnews.com/sites/default/files/styles/n_670_395/public/2020/02/23/1985096-2103691868.jpg?itok=Xyr_pnp7", 
-    description:"My small business, like so many others, has been greatly affected by the COVID pandemic. I’m behind on my",
-    location:"Manhattan, NY",
-    reached: 50,
-    goal : 100,
-  },
+  
   ]
   }
 
@@ -138,12 +148,14 @@ this.setState({'loc':responseJson.data[0].label})
       <Image source={require('../assets/logo.png')} style={{width:'80%', height:'5%', resizeMode:'contain', alignSelf:'center', marginTop:'10%'}}></Image>
       <Text style={{marginTop:'2%', alignSelf:'flex-end', textAlign:'right', marginRight:'5%'}}> <Icon name="user" type="evilicon" size={40} color="#227F74" style={{alignSelf:'flex-end'}} onPress={()=>{this.props.navigation.navigate('Settings')}}></Icon></Text>
       <Text style={{position:'relative',fontSize:30,marginTop:'-5%',textAlign:'left', marginLeft:'7.5%', color:'#227F74', fontFamily:'FuturaH', width:'100%'}}>Nearby Causes</Text>
+      
       {this.state.loc == 'Location not set' &&  <View style={styles.playing}>
       
       <View>
             <Text style={{position:'relative',fontSize:22,marginTop:'10%',textAlign:'center', color:'#364f6b', fontFamily:'FuturaH', marginLeft:'5%', marginRight:'5%'}}>Support your local community. Explore charities and fundraisers near you.</Text>
            
             <Text onPress={()=>{this._getLocation()}} style={{position:'relative',fontSize:15,marginTop:'5%',textAlign:'justify', color:'#FFF', alignSelf:'center', fontFamily:'FuturaH', backgroundColor:'#227F74',padding:'5%', width:'70%',borderRadius:30}}><Icon name="location-arrow" type="font-awesome" color="#FFF" size={15}></Icon> Get Current Location</Text>
+          <Text onPress={()=>this.props.navigation.navigate('Add')} style={{position:'relative',fontSize:15, marginTop:'5%',marginBottom:'20%',textAlign:'center', color:'#364f6b', fontFamily:'FuturaH', marginLeft:'5%', marginRight:'5%'}}>or start your fundraiser</Text>
             </View>
       </View>}
       
@@ -164,7 +176,7 @@ this.setState({'loc':responseJson.data[0].label})
       {this.state.org && this.state.comm &&
       <CardList itemList={this.getData()}/>}
         {this.state.org && !this.state.comm &&
-      <PostList itemList={this.getData()}/>}
+      <PostList itemList={this.getOData()}/>}
         {!this.state.org && this.state.comm &&
       <PostList itemList={this.getCData()}/>}
       </ScrollView>

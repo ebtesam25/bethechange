@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
      photo: {
         height: 200,
         width: 350,
-        justifyContent:'center',
+        alignSelf:'center',
         borderTopLeftRadius:10,
         borderTopRightRadius:10,
         resizeMode:'contain',

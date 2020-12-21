@@ -74,10 +74,10 @@ const styles = StyleSheet.create({
      photo: {
         height: 295,
         width:500,
-        justifyContent:'center',
+        alignSelf:'center',
         resizeMode:'contain',
         position:'absolute',
-        top:0,
+        top:-30,
         
         
     },
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontFamily:'FuturaL',
         color:'#227F74',
-        marginTop:350,
+        marginTop:300,
     },
     description: {
         fontSize: 18,
