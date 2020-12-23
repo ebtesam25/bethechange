@@ -1,11 +1,12 @@
 ## **Released under the Open Innovation License**
 
-Copyright © <YEAR> <COPYRIGHT HOLDER> // Insert information of license holder
+Copyright © 2020 Be The Change
 
-*Version 1, 10th November 2020*
+*Version 1, 23rd December 2020*
 
-*Copyright © 2020 Stark Drones Corporation*  
-*Copyright © 2020 Andrew Magdy Kamal*
+*Copyright © 2020 Muntaser Syed*  
+*Copyright © 2020 Ebtesam Al Haque*  
+*Copyright © 2020 Amy Lima*
 
 This project is licensed under the *Open Innovation License*. This means any code, file, diagrams, data format, or other innovation containing this license within it can be copied, modified, redistributed, published, or even used for commercial purposes within the context of this license. 
 
